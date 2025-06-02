@@ -1,0 +1,26 @@
+{% extends "website/layout.html" %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<h1> This is our details page. </h1>
+<div class="grid grid-cols-3 gap-2 m-4">
+{% for app in apps %}
+<div>
+    <img src="{{app.img.url}}">
+    <h3> {{app.name}}</h3>
+    <a href="#{% url 'description' app.id %}">
+
+        <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-trasparent 
+        text-sm font-medium text-white bd-blue-600 hover:bd-orange-400 focus:outline-none focus:ring-offset-2
+        focus:ring-orange-500">  
+            {{apps.type}} - {{app.id}}
+        </button>
+    </a>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+
